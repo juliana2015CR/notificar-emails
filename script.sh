@@ -1,3 +1,3 @@
 #!/bin/bash
 
-php /var/www/html/tcc/notificar.php
+php /var/www/html/tcc/classes/notificar.php
