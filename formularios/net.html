@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="../css/form.css"/>
+
+  <meta charset="UTF-8">
+  <title>Notificações</title>
+
+<script type="text/javascript">
+function id(el) {
+  return document.getElementById(el);
+}
+function mostra(element) {
+  if (element) {
+    id(element.value).style.display = 'block';
+  }
+}
+function esconde_todos($element, tagName) {
+  var $elements = $element.getElementsByTagName(tagName),
+      i = $elements.length;
+  while(i--) {
+    $elements[i].style.display = 'none';
+  }
+}
+window.addEventListener('load', function() {
+  var $1 = id('1'),
+      $0 = id('0'),
+      $tempo  = id('sel-tempo');
+
+  //mostrando no onload da página
+  esconde_todos(id('palco'), 'div');
+  mostra(document.querySelector('input[name="rd-tempo"]:checked'));
+
+
+  //mostrando ao clicar no radio
+  var $radios = document.querySelectorAll('input[name="rd-tempo"]');
+  $radios = [].slice.call($radios);
+
+  $radios.forEach(function($each) {
+    $each.addEventListener('click', function() {
+      esconde_todos(id('palco'), 'div');
+      mostra(this);
+    });
+  });
+});
+</script>
+</head>
+<body>
+<label>
+<form method="post" action="../classes/estadoNotif.php">
+<h1>Notificações</h2>
+  <label><input type="radio" name="rd-tempo" value="1" />Sim</label>
+  <label><input type="radio" name="rd-tempo" value="0" />Não</label>
+
+  <div id="palco">
+    <div id="1">
+	<h2>Escolha um Intervalo:</h2>
+        <p><input type="radio" name="int" value="5">5 minutos</p>
+        <p><input type="radio" name="int" value="10">10 minutos</p>
+    </div>
+    <div id="0">
+    </div>
+  </div>
+<button>Enviar</button>
+
+</form>
+</body>
+</html>

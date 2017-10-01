@@ -1,0 +1,2 @@
+*/10 * * * * /usr/bin/php /var/www/html/tcc/classes/notificar.php
+

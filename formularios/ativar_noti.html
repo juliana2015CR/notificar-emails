@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="../css/form.css"/>
+<meta charset="UTF-8"/>
+</head>
+
+<form method="post" action="../classes/estado_notif.php">
+
+	<h1>Notificações</h1>
+	<p><input type="radio" name="estado" value="1">Sim</p>
+	<p><input type="radio" name="estado" value="0" checked>Não</p>
+	<h1>Intervalo entre as notificações</h1>
+	<p><input type="radio" disabled name="int" value="0"></p>
+	<p><input type="radio" name="int" value="5">5 minutos</p>
+	<p><input type="radio" name="int" value="10">10 minutos</p>
+	
+	<button>Enviar</button>
+</form>
+
+</html>
