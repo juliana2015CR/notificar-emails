@@ -9,7 +9,7 @@ $corpoMensagem 		= "<b>Nome:</b> ".$txtNome." <br><b>Assunto:</b> ".$txtAssunto.
 require_once("class.phpmailer.php");
 
 define('GUSER', 'jujucastro5555@gmail.com'); 
-define('GPWD', 'diegoebia');
+define('GPWD', '');
 
 function smtpmailer($para, $de, $nomeDestinatario, $assunto, $corpo) { 
 	global $error;
