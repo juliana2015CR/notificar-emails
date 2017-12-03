@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<link rel="stylesheet" href="../css/form.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Notificações</title>
+	
+<script type="text/javascript">
+
+$(document).ready(function(){
+	   $('#form_not input').attr('checked',false);
+       $("#intsim").hide();
+       $("#intnao").hide();
+       $('.menu2').each(function(){
+       		$(this).hide();
+       })
+       $('.menu3').each(function(){
+       		$(this).hide();
+
+       })
+       $('#not input').on('change', function() {
+   		var op = $('input[name=estado]:checked').val();
+		//alert(op);   	
+   		switch(op) {
+
+   		case '1':
+       	$("#intsim").show();
+       	$("#intnao").hide();
+   		$('.menu2').each(function(){
+       		$(this).hide();
+       	});
+       	$('.menu3').each(function(){
+       		$(this).hide();
+
+       })
+   		break;
+
+   		case '0':
+   		$("#intnao").show();
+   		$("#intsim").hide();
+   		$('.menu2').each(function(){
+       		$(this).hide();
+       	});
+       	$('.menu3').each(function(){
+       		$(this).hide();
+
+       })
+       	break;
+
+   		case '2':
+   		$("#intnao").hide();
+   		$("#intsim").hide();
+   		$('.menu2').each(function(){
+       		$(this).show();
+       		});
+   		break;
+
+   		}
+});
+    	
+
+      
+
+       $('.menu2 input').on('change', function() {
+
+		//alert(op);
+		var campo = $(this).attr("name");
+		switch (campo){
+			case "temp":
+			if ($(this).val() == "1"){
+				$('.menu3').each(function(){
+       				var op3 = $(this).find("input").attr("name");
+       				if (op3 == "intervalot"){
+       				    $(this).show();
+       				}
+			});
+
+			}else{
+				$('.menu3').each(function(){
+       				var op3 = $(this).find("input").attr("name");
+       				if (op3 == "intervalot"){
+       					$(this).hide();
+       				}
+			});
+			}
+			break;
+			case "umi":
+			if ($(this).val() == "1"){
+				$('.menu3').each(function(){
+       				var op3 = $(this).find("input").attr("name");
+       				if (op3 == "intervalou"){
+       					$(this).show();
+       				}
+			});
+
+			}else{
+				$('.menu3').each(function(){
+       				var op3 = $(this).find("input").attr("name");
+       				if (op3 == "intervalou"){
+       					$(this).hide();
+       				}
+			});
+			}
+			break;
+			case "som":
+			if ($(this).val() == "1"){
+				$('.menu3').each(function(){
+       				var op3 = $(this).find("input").attr("name");
+       				if (op3 == "intervalos"){
+       					$(this).show();
+       				}
+			});
+
+			}else{
+				$('.menu3').each(function(){
+       				var op3 = $(this).find("input").attr("name");
+       				if (op3 == "intervalos"){
+       					$(this).hide();
+       				}
+			});
+			}
+			break;
+			case "oxigenio":
+			if ($(this).val() == "1"){
+				$('.menu3').each(function(){
+       				var op3 = $(this).find("input").attr("name");
+       				if (op3 == "intervaloo"){
+       					$(this).show();
+       				}
+			});
+
+			}else{
+				$('.menu3').each(function(){
+       				var op3 = $(this).find("input").attr("name");
+       				if (op3 == "intervaloo"){
+       					$(this).hide();
+       				}
+			});
+			}
+			break;
+			case "dioxido":
+			if ($(this).val() == "1"){
+				$('.menu3').each(function(){
+       				var op3 = $(this).find("input").attr("name");
+       				if (op3 == "intervalod"){
+       					$(this).show();
+       				}
+			});
+
+			}else{
+				$('.menu3').each(function(){
+       				var op3 = $(this).find("input").attr("name");
+       				if (op3 == "intervalod"){
+       					$(this).hide();
+       				}
+			});
+			}
+			break;
+			case "peso":
+			if ($(this).val() == "1"){
+				$('.menu3').each(function(){
+       				var op3 = $(this).find("input").attr("name");
+       				if (op3 == "intervalop"){
+       					$(this).show();
+       				}
+			});
+
+			}else{
+				$('.menu3').each(function(){
+       				var op3 = $(this).find("input").attr("name");
+       				if (op3 == "intervalop"){
+       					$(this).hide();
+       				}
+			});
+			}
+			break;
+			
+
+		}   	
+   		
+   	});    
+
+});
+
+</script>
+</head>
+<body>
+<form method="post" id="form_not" action="../classes/inserirNotif.php">
+<div id="not">
+<h1>Notificações</h1>
+<h2>Ativar todas as notificações</h2>
+  <label><input type="radio" name="estado" value="1"  />Sim</label>
+  <label><input type="radio" name="estado" value="0"  / checked >Não</label>
+  <label><input type="radio" name="estado" value="2" />Personalizar</label>
+</div>
+
+    <div id="intsim">
+		<h2>Escolha um Intervalo:</h2>
+        	<p><input type="radio" name="intervalo" value="5">5 minutos</p>
+        	<p><input type="radio" name="intervalo" value="10" checked >10 minutos</p>
+    </div>
+ 
+    <div id="intnao">
+    	    <p><input type="radio" name="intervalo" value="0" invisible>As notificações não serão enviadas</p>
+    </div>	
+    
+
+	<div class="menu2">
+		<h2>Notificações de Temperatura:</h2>	
+		<p><input  type="radio" name="temp" value="1">Sim <input type="radio" name="temp" value="0" checked>Não</p></br>
+	</div>
+	<div class="menu3">
+		<h2>Escolha um Intervalo:</h2>
+       	<p><input type="radio" name="intervalot" value="5">5 minutos <input type="radio" name="intervalot" value="10" checked>10 minutos</p>
+	</div>
+</div>
+
+	<div class="menu2">
+		<h2>Notificações de Umidade:</h2>  	
+		<p><input type="radio" name="umi" value="1">Sim <input type="radio" name="umi" value="0" checked >Não</p></br>
+	</div>
+	
+	<div class="menu3">
+		<h2>Escolha um Intervalo:</h2>
+       		<p><input type="radio" name="intervalou" value="5">5 minutos <input type="radio" name="intervalou" value="10" checked >10 minutos</p>
+	</div>
+
+	<div class="menu2">
+		<h2>Notificações de Som:</h2> 	
+		<p><input type="radio" name="som" value="1">Sim <input type="radio" name="som" value="0" checked >Não</p></br>
+	</div>
+	
+	<div class="menu3">
+		<h2>Escolha um Intervalo:</h2>
+       	<p><input type="radio" name="intervalos" value="5">5 minutos <input type="radio" name="intervalos" value="10" checked >10 minutos</p>
+	</div>
+	
+	<div class="menu2">
+		<h2>Notificações de Oxigenio:</h2>   	
+		<p><input type="radio" name="oxigenio" value="1">Sim <input type="radio" name="oxigenio" value="0" checked >Não</p></br>
+	</div>
+
+	<div class="menu3">
+		<h2>Escolha um Intervalo:</h2>
+       	<p><input type="radio" name="intervaloo" value="5">5 minutos <input type="radio" name="intervaloo" value="10" checked >10 minutos</p>
+	</div>
+
+	<div class="menu2">
+		<h2>Notificações de Dioxido:</h2>   	
+		<p><input type="radio" name="dioxido" value="1">Sim <input type="radio" name="dioxido" value="0" checked >Não</p></br>
+	</div>
+
+	<div class="menu3">
+		<h2>Escolha um Intervalo:</h2>
+       	<p><input type="radio" name="intervalod" value="5">5 minutos <input type="radio" name="intervalod" value="10" checked >10 minutos</p>
+	</div>
+	
+	<div class="menu2">
+		<h2>Notificações de Peso:</h2>   	
+		<p><input type="radio" name="peso" value="1">Sim <input type="radio" name="peso" value="0" checked >Não</p></br>
+	</div>
+	
+	<div class="menu3">
+		<h2>Escolha um Intervalo:</h2>
+       	<p><input type="radio" name="intervalop" value="5">5 minutos <input type="radio" name="intervalop" value="10" checked >10 minutos</p>
+	</div>
+  
+<button>Enviar</button>
+
+</form>
+</body>
+</html>

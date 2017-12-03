@@ -21,6 +21,24 @@ h2 {
 }
 
 
+#not{
+	float: left;
+	width: 260px;
+	margin-top: -13px;
+}
+.menu2 {
+
+	width: 260px;
+	margin-left: 270px;
+}
+.menu3 {
+
+	width: 260px;
+	margin-left: 540px;
+	margin-top: -141px;
+}
+
+
 form {
   box-sizing: border-box;
   width: 260px;
@@ -92,3 +110,5 @@ input:focus::-webkit-input-placeholder, input:valid::-webkit-input-placeholder {
           transform: translateY(-20px);
   visibility: visible !important;
 }
+
+
